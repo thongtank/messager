@@ -24,6 +24,7 @@ class department extends db {
             return false;
         }
     }
+
     public function get_department($id) {
         $sql = "select * from tb_department where dep_id = " . $id . ";";
         $result = parent::query($sql, $rows, $num_rows);

@@ -24,6 +24,11 @@ $pr = new cls\parents();
         <meta charset="UTF-8">
         <title>Admin Management</title>
         <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <script type="text/javascript">
+        function inapprove_popup(message) {
+            alert("เหตุผลที่ไม่อนุมัติคือ \"" + message + "\"");
+        }
+        </script>
     </head>
 
     <body>
@@ -77,10 +82,16 @@ if ($result) {
                 $receive_name = $parent['fname'] . ' ' . $parent['lname'];
             } else {
                 $kind_of_send = 'กลุ่ม';
+                $receive_name = $department_name . ' ' . $grade_name . '/' . $v['group'];
             }
-            if ($v['status'] == 'ส้งแล้ส') {
 
+            $status = $v['status'];
+            if ($v['status'] == 'ส้งแล้ว') {
+
+            } else if ($v['status'] == 'ไม่อนุมัติส่ง') {
+                $status = "<a href='#' onClick='inapprove_popup(\"" . $v['note'] . "\");'>ไม่อนุมัติส่ง</a>";
             }
+
             print "
             <tr>
                 <td>" . $v['message'] . "</td>
@@ -88,7 +99,7 @@ if ($result) {
                 <td>" . $kind_of_send . "</td>
                 <td>" . $receive_name . "</td>
                 <td>" . $v['date_create'] . "</td>
-                <td>" . $v['status'] . "</td>
+                <td>" . $status . "</td>
                 <td>
                     <a title='อนุมัติส่งข้อความ' href='approve_message.php?id=" . $v['message_id'] . "' onclick='return confirm(\"ยืนยันการอนุมัติส่งข้อความ ?\");'><i class='fa fa-thumbs-o-up' aria-hidden='true'></i></a>
                 </td>
@@ -120,4 +131,5 @@ $num_rows = null;
         <script src="../js/jquery-1.11.3.min.js"></script>
         <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     </body>
+
     </html>
