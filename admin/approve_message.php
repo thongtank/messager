@@ -91,12 +91,12 @@ if ($result) {
 }
 
 function send_success($msg = '', $note = '', $db) {
-    $sql = "UPDATE `tb_message` SET `status` = '" . $msg . "', `note` = '" . $note . "', date_approve = 'NOW()' WHERE `tb_message`.`message_id` = " . $_GET['id'] . ";";
+    $sql = "UPDATE `tb_message` SET `status` = '" . $msg . "', `note` = '" . $note . "', date_approve = NOW(), `admin_id` = " . $_SESSION['admin_id'] . " WHERE `tb_message`.`message_id` = " . $_GET['id'] . ";";
     $result = $db->query($sql, $rows, $num_rows);
     if ($result === true) {
         header("Location: send_success.php");
     } else {
         echo $result . "<BR>";
-        echo "<a href='list-msg.php'>กลับหน้าเพิ่มข้อมูล</a>";
+        echo "<a href='list-msg.php'>กลับหน้าจัดการข้อความ</a>";
     }
 }

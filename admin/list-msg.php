@@ -42,7 +42,7 @@ $pr = new cls\parents();
                     <div class="col-md-12" style="padding-top: 10px;">
                         <div class="panel panel-warning">
                             <div class="panel-heading">
-                                <h3>ข้อความ</h3>
+                                <h3>จัดการข้อความ</h3>
                             </div>
                             <div class="panel-body">
                                 <table class="table table-hover">
@@ -78,6 +78,9 @@ if ($result) {
             } else {
                 $kind_of_send = 'กลุ่ม';
             }
+            if ($v['status'] == 'ส้งแล้ส') {
+
+            }
             print "
             <tr>
                 <td>" . $v['message'] . "</td>
@@ -90,7 +93,7 @@ if ($result) {
                     <a title='อนุมัติส่งข้อความ' href='approve_message.php?id=" . $v['message_id'] . "' onclick='return confirm(\"ยืนยันการอนุมัติส่งข้อความ ?\");'><i class='fa fa-thumbs-o-up' aria-hidden='true'></i></a>
                 </td>
                 <td>
-                    <a title='ไม่อนุมัติส่งข้อความ' href='inapprove-message.php?id=" . $v['message_id'] . "' onclick='return confirm(\"ยืนยันการอนุมัติส่งข้อความ ?\");'><i class='fa fa-thumbs-o-down' aria-hidden='true'></i></a>
+                    <a title='ไม่อนุมัติส่งข้อความ' href='inapprove_message.php?id=" . $v['message_id'] . "'><i class='fa fa-thumbs-o-down' aria-hidden='true'></i></a>
                 </td>
             </tr>
             ";
