@@ -91,7 +91,8 @@ if ($result) {
             } else if ($v['status'] == 'ไม่อนุมัติส่ง') {
                 $status = "<a href='#' onClick='inapprove_popup(\"" . $v['note'] . "\");'>ไม่อนุมัติส่ง</a>";
             }
-
+            $approve_link = "";
+            $inapprove_link = "";
             print "
             <tr>
                 <td>" . $v['message'] . "</td>
@@ -99,12 +100,23 @@ if ($result) {
                 <td>" . $kind_of_send . "</td>
                 <td>" . $receive_name . "</td>
                 <td>" . $v['date_create'] . "</td>
-                <td>" . $status . "</td>
-                <td>
+                <td>" . $status . "</td>";
+            if ($status == "รออนุมัติ") {
+                $approve_link = "
                     <a title='อนุมัติส่งข้อความ' href='approve_message.php?id=" . $v['message_id'] . "' onclick='return confirm(\"ยืนยันการอนุมัติส่งข้อความ ?\");'><i class='fa fa-thumbs-o-up' aria-hidden='true'></i></a>
+                ";
+                $inapprove_link = "
+                    <a title='ไม่อนุมัติส่งข้อความ' href='inapprove_message.php?id=" . $v['message_id'] . "'><i class='fa fa-thumbs-o-down' aria-hidden='true'></i></a>
+                ";
+            } else {
+
+            }
+            print "
+                <td>
+                    " . $approve_link . "
                 </td>
                 <td>
-                    <a title='ไม่อนุมัติส่งข้อความ' href='inapprove_message.php?id=" . $v['message_id'] . "'><i class='fa fa-thumbs-o-down' aria-hidden='true'></i></a>
+                    " . $inapprove_link . "
                 </td>
             </tr>
             ";

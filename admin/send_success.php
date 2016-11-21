@@ -12,7 +12,7 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
 
     <head>
         <meta charset="UTF-8">
-        <title>แก้ไขข้อมูลเสร็จสมบูรณ์</title>
+        <title>ส่งข้อความเสร็จสมบูรณ์</title>
 
         <link rel="stylesheet" href="../css/font-awesome.min.css">
         <style>

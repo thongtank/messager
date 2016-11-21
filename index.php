@@ -1,6 +1,5 @@
 <?php
 session_start();
-// print_r($_SESSION['profile_detail']);
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -26,6 +25,7 @@ session_start();
         <article class="container-fluid">
             <section class="container">
                 <div class="col-md-12 menu text-center">
+                    <?php if (!isset($_SESSION['teacher_id'])) {?>
                     <form action="php/login.php" method="POST" class="form-horizontal">
                         <div class="form-group">
                             <h1 class="text-center"><i class="fa fa-user fa-5x"></i></h1>
@@ -47,6 +47,7 @@ session_start();
                             </div>
                         </div>
                     </form>
+                    <?php }?>
                 </div>
             </section>
         </article>
