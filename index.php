@@ -28,7 +28,8 @@ session_start();
                 <div class="col-md-12 menu text-center">
                     <form action="php/login.php" method="POST" class="form-horizontal">
                         <div class="form-group">
-                            <h1 class="text-center">เข้าสู่ระบบ</h1>
+                            <h1 class="text-center"><i class="fa fa-user fa-5x"></i></h1>
+                            <h1 class="text-center">Teacher Login</h1>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
