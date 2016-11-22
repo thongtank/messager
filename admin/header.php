@@ -21,6 +21,9 @@
                     <li class="dropdown">
                         <a href="list-msg.php"><i class="fa fa-comments-o"></i> ข้อความ</a>
                     </li>
+                    <li class="dropdown">
+                        <a href="list-department.php"><i class="fa fa-industry"></i> แผนก</a>
+                    </li>
                 </ul>
                 <!--
                 <ul class="nav navbar-nav">

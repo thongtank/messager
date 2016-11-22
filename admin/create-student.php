@@ -115,6 +115,7 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
         <script src="../js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
         <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../src/student.js"></script>
+        <script src="../src/department.js"></script>
         <script src="../js/jquery.confirm-master/jquery.confirm.min.js"></script>
     </body>
 

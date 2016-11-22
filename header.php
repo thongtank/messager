@@ -11,9 +11,14 @@
                 <a class="navbar-brand" href="index.php">ระบบแจ้งข้อมูลข่าวสารวิทยาลัยเทคนิคอุบลราชธานี</a>
             </div>
             <div>
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav pull-right">
                     <li class="">
                         <a href="index.php"><i class="fa fa-home"></i> หน้าหลัก</a>
+                    </li>
+                    <li class="">
+                        <a href="signout.php" onclick="return confirm('ยืนยันการออกจากระบบ ?');" title="ออกจากระบบ">
+                            <i class="fa fa-sign-out"></i> ออกจากระบบ
+                        </a>
                     </li>
                     <!--
                     <li class="">

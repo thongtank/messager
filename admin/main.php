@@ -131,7 +131,6 @@ $num_rows = null;
                                 <a href="list-teacher.php">รายชื่ออาจารย์ทั้งหมด</a>
                             </div>
                         </div>
-
                         <!-- รายชื่อผู้ปกครอง -->
                         <div class="panel panel-primary">
                             <div class="panel-heading">

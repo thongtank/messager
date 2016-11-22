@@ -23,4 +23,15 @@ class messages extends db {
             return false;
         }
     }
+
+    public function get_message_by_id($id = 0) {
+        $sql = "SELECT * FROM tb_message WHERE message_id = " . $id . " LIMIT 1;";
+        // echo $sql;
+        $result = $this->query($sql, $rows, $num_rows);
+        if ($result) {
+            return $rows[0];
+        } else {
+            return false;
+        }
+    }
 }

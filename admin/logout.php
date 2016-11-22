@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-$_SESSION["admin"] = "";
-$_SESSION["admin_username"] = "";
-$_SESSION["typeOfUser"] = "";
+// $_SESSION["admin"] = "";
+// $_SESSION["admin_username"] = "";
+// $_SESSION["typeOfUser"] = "";
 // session_unset();
-// session_destroy();
+session_destroy();
 
 header("Location: index.php");
