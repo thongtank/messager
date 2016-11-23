@@ -24,6 +24,9 @@
                     <li class="dropdown">
                         <a href="list-department.php"><i class="fa fa-industry"></i> แผนก</a>
                     </li>
+                    <li class="dropdown">
+                        <a href="list-branch.php"><i class="fa fa-building"></i> สาขาวิชา</a>
+                    </li>
                 </ul>
                 <!--
                 <ul class="nav navbar-nav">

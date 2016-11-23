@@ -1,9 +1,9 @@
 // LOAD department, Aumphur and District from log not database
 $(function() {
-
+    $('.se-pre-con').hide();
     var $std_id = $('input#student_id');
     var $lblname = $('label#student_name');
-    var student_id;
+    var student_id = '';
     $std_id.keyup(function(event) {
         event.preventDefault();
         student_id = $(this).val();

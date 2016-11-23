@@ -1,16 +1,16 @@
 <?php
 session_start();
 if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
-    session_unset();
-    session_destroy();
-    header("Location: index.php");
-    exit;
+	session_unset();
+	session_destroy();
+	header("Location: index.php");
+	exit;
 }
 
 if (!isset($_GET['id']) or empty($_GET['id'])) {
-    header("Location: main.php");
+	header("Location: main.php");
 } else {
-    include '../php/config/autoload.inc.php';
+	include '../php/config/autoload.inc.php';
 }
 use classes as cls;
 use config as cfg;
@@ -20,30 +20,30 @@ $dep = new cls\department;
 $sql = "select * from tb_student where student_id = " . trim($_GET['id']) . " limit 1";
 $result = $db->query($sql, $rows, $num_rows);
 if (!$result) {
-    print $result . "<BR>";
-    print "<a href='main.php'>กลับหน้าหลัก</a>";
-    exit;
+	print $result . "<BR>";
+	print "<a href='main.php'>กลับหน้าหลัก</a>";
+	exit;
 } else {
-    /*
-    student_id = 6
-    student_id = asdasd
-    student_fname = asdasd
-    hospital_address = asdasd
-    department = 1
-    branch = 1
-    grade = 1
-    zipcode = 10100
-    lat =
-    lng =
-    tel =
-    email =
-    date_added = 0000-00-00 00:00:00
-     */
-    $data = array();
-    foreach ($rows[0] as $key => $value) {
-        $data[$key] = $value;
-    }
-    // print "<pre>" . print_r($data, 1) . "</pre>";
+	/*
+		    student_id = 6
+		    student_id = asdasd
+		    student_fname = asdasd
+		    hospital_address = asdasd
+		    department = 1
+		    branch = 1
+		    grade = 1
+		    zipcode = 10100
+		    lat =
+		    lng =
+		    tel =
+		    email =
+		    date_added = 0000-00-00 00:00:00
+	*/
+	$data = array();
+	foreach ($rows[0] as $key => $value) {
+		$data[$key] = $value;
+	}
+	// print "<pre>" . print_r($data, 1) . "</pre>";
 }
 ?>
     <!DOCTYPE html>
@@ -162,6 +162,7 @@ if (!$result) {
         <script src="../js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
         <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../src/student.js"></script>
+        <script src="../src/department.js"></script>
         <script src="../js/jquery.confirm-master/jquery.confirm.min.js"></script>
     </body>
 

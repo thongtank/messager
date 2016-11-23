@@ -1,10 +1,10 @@
 <?php
 session_start();
 if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
-    session_unset();
-    session_destroy();
-    header("Location: index.php");
-    exit;
+	session_unset();
+	session_destroy();
+	header("Location: index.php");
+	exit;
 }
 ?>
     <!DOCTYPE html>
@@ -19,7 +19,6 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
     </head>
 
     <body>
-        <div class="se-pre-con"></div>
         <article class="container">
             <?php include "header.php";?>
             <section>
@@ -35,7 +34,7 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
                     <div class="form-group">
                         <label for="parent_id" class="control-label col-md-4">รหัสประจำตัวผู้ปกครอง *</label>
                         <div class="col-md-8">
-                            <input type="text" pattern="[0-9]{13}" class="form-control" id="parent_id" name="parent_id" required>
+                            <input type="text" pattern="[0-9]{13}" class="form-control" id="parent_id" name="parent_id" required="required">
                         </div>
                     </div>
                     <div class="form-group">

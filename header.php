@@ -15,11 +15,15 @@
                     <li class="">
                         <a href="index.php"><i class="fa fa-home"></i> หน้าหลัก</a>
                     </li>
+                    <?php
+if (isset($_SESSION['teacher'])) {
+	?>
                     <li class="">
                         <a href="signout.php" onclick="return confirm('ยืนยันการออกจากระบบ ?');" title="ออกจากระบบ">
                             <i class="fa fa-sign-out"></i> ออกจากระบบ
                         </a>
                     </li>
+                    <?php }?>
                     <!--
                     <li class="">
                         <a href="research.php"><i class="fa fa-line-chart"></i> ประเมินการรักษา</a>

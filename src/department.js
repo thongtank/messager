@@ -1,4 +1,27 @@
 $(function() {
+    var $lblname = $('label#department_name');
+    var dep_name = '';
+    var $btnsubmit = $('#btnsubmit');
+    $('input#department').keyup(function(){
+        dep_name = $(this).val();
+        $.ajax({
+            url: '/utcmsg/php/already_department.php',
+            type: 'POST',
+            data: {
+                name: $(this).val()
+            }
+        }).done(function(data){
+            if (data == 1) {
+                $lblname.html('<b class=text-danger>แผนก ' + dep_name + ' ไม่สามารถใช้งานได้</b>');
+                $btnsubmit.attr('disabled', 'disabled');
+            } else {
+                $lblname.html('<b class=text-success>แผนก ' + dep_name + ' สามารถใช้งานได้</b>');
+                $btnsubmit.removeAttr('disabled');
+            }
+            
+        });
+    });
+
     $.ajax({
             url: '/utcmsg/php/logs/department.txt',
             dataType: "json",
