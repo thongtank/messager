@@ -28,12 +28,17 @@ $pr = new cls\parents;
             padding-bottom: 20px;
         }
         </style>
+        <script type="text/javascript">
+        function inapprove_popup(message) {
+            alert("เหตุผลที่ไม่อนุมัติคือ \"" + message + "\"");
+        }
+        </script>
     </head>
 
     <body>
         <?php include "header.php";?>
         <article class="container-fluid">
-            <section class="container">
+            <section class="container-fluid">
                 <div class="col-md-12 menu text-center">
                     <?php if (!isset($_SESSION['teacher_id'])) {?>
                     <form action="php/login.php" method="POST" class="form-horizontal">

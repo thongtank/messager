@@ -1,10 +1,10 @@
 <?php
 session_start();
 if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
-	session_unset();
-	session_destroy();
-	header("Location: index.php");
-	exit;
+    session_unset();
+    session_destroy();
+    header("Location: index.php");
+    exit;
 }
 ?>
     <!DOCTYPE html>
@@ -78,7 +78,9 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
                     </div>
                     <div class="form-group">
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-success" onclick="return confirm('ยืนยันการบันทึกข้อมูลผู้ปกครอง ?')">บันทึก</button>
+                            <!-- <button type="submit" class="btn btn-success" onclick="return confirm('ยืนยันการบันทึกข้อมูลผู้ปกครอง ?')">บันทึก</button>
+                            <button class="btn btn-danger" type="reset">ยกเลิก</button> -->
+                            <button type="submit" class="btn btn-success">บันทึก</button>
                             <button class="btn btn-danger" type="reset">ยกเลิก</button>
                         </div>
                     </div>

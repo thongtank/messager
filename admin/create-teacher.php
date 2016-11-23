@@ -79,7 +79,9 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
                     </div>
                     <div class="form-group">
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-success" onclick="return confirm('ยืนยันการบันทึกข้อมูลอาจารย์ ?')">บันทึก</button>
+                            <!-- <button type="submit" class="btn btn-success" onclick="return confirm('ยืนยันการบันทึกข้อมูลอาจารย์ ?')">บันทึก</button>
+                            <button class="btn btn-danger" type="reset">ยกเลิก</button> -->
+                            <button type="submit" class="btn btn-success">บันทึก</button>
                             <button class="btn btn-danger" type="reset">ยกเลิก</button>
                         </div>
                     </div>

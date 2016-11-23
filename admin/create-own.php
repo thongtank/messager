@@ -89,7 +89,9 @@ if (!$result) {
                     </div>
                     <div class="form-group">
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-success" onclick="return confirm('ยืนยันการเพิ่มข้อมูลการปกครอง ?')">เพิ่ม</button>
+                            <!-- <button type="submit" class="btn btn-success" id="btnown" onclick="return confirm('ยืนยันการเพิ่มข้อมูลการปกครอง ?')">เพิ่ม</button>
+                            <button class="btn btn-danger" type="reset">ยกเลิก</button> -->
+                            <button type="submit" class="btn btn-success" id="btnown">เพิ่ม</button>
                             <button class="btn btn-danger" type="reset">ยกเลิก</button>
                         </div>
                     </div>
