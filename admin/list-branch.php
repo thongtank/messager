@@ -1,12 +1,12 @@
 <?php
 session_start();
 if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
-	session_unset();
-	session_destroy();
-	header("Location: index.php");
-	exit;
+    session_unset();
+    session_destroy();
+    header("Location: index.php");
+    exit;
 } else {
-	include '../php/config/autoload.inc.php';
+    include '../php/config/autoload.inc.php';
 }
 use classes as cls;
 use config\database as db;
@@ -71,24 +71,24 @@ $dep = new cls\department();
                                     <?php
 $sql = "";
 if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
-	$keyword = trim($_GET['keyword']);
-	$sql .= "select * from tb_branch where
+    $keyword = trim($_GET['keyword']);
+    $sql .= "select * from tb_branch where
         dep_name like '%" . $keyword . "%'";
 } else {
-	$sql = "select * from tb_branch ";
+    $sql = "select * from tb_branch ";
 }
 $sql .= "order by date_create desc";
 $result = $db->query($sql, $rows, $num_rows);
 if ($result) {
-	// print "<pre>" . print_r($rows, 1) . "</pre>";
-	if ($num_rows > 0) {
-		foreach ($rows as $k => $v) {
-			$department = $dep->get_department($v['dep_id']);
-			$department_name = $department[0]['dep_name'];
-			$branch = $dep->get_branch($v['branch_id']);
-			$branch_name = $branch[0]['branch_name'];
+    // print "<pre>" . print_r($rows, 1) . "</pre>";
+    if ($num_rows > 0) {
+        foreach ($rows as $k => $v) {
+            $department = $dep->get_department($v['dep_id']);
+            $department_name = $department[0]['dep_name'];
+            $branch = $dep->get_branch($v['branch_id']);
+            $branch_name = $branch[0]['branch_name'];
 
-			print "
+            print "
             <tr>
                 <td>" . $department_name . "</td>
                 <td>" . $branch_name . "</td>
@@ -96,14 +96,14 @@ if ($result) {
                 <td><a href='edit-branch.php?id=" . $v['branch_id'] . "'><i class='fa fa-pencil'></i></a></td>
             </tr>
             ";
-		}
-	} else {
-		print "
+        }
+    } else {
+        print "
             <tr>
                 <td colspan=7 align=center>ไม่พบข้อมูล</td>
             </tr>
         ";
-	}
+    }
 }
 $result = null;
 $rows = null;

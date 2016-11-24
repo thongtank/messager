@@ -86,51 +86,6 @@ $num_rows = null;
                                 <a href="list-student.php">รายชื่อนักเรียนทั้งหมด</a>
                             </div>
                         </div>
-                        <!-- รายชื่อครู -->
-                        <div class="panel panel-danger">
-                            <div class="panel-heading">
-                                <h3>ข้อมูลอาจารย์ <a href="create-teacher.php"><i style="color: white;" class="fa fa-plus"></i></a></h3>
-                            </div>
-                            <div class="panel-body">
-                                <table class="table table-hover">
-                                    <tr>
-                                        <th>ชื่อ - นามสกุล</th>
-                                        <th>แผนกวิชา</th>
-                                        <th>Tel.</th>
-                                        <th>Email</th>
-                                        <th colspan="2">จัดการ</th>
-                                    </tr>
-                                    <?php
-$sql = "select * from tb_teacher limit 10;";
-$result = $db->query($sql, $rows, $num_rows);
-if ($result) {
-    if ($rows > 0) {
-        foreach ($rows as $k => $v) {
-            $department = $dep->get_department($v['dep_id']);
-            $department_name = $department[0]['dep_name'];
-            print "
-            <tr>
-                <td>" . $v['fname'] . " " . $v['lname'] . "</td>
-                <td>" . $department_name . "</td>
-                <td>" . $v['tel'] . "</td>
-                <td>" . $v['email'] . "</td>
-                <td><a href='delete-teacher.php?id=" . $v['teacher_id'] . "' onclick='return confirm(\"ยืนยันการลบข้อมูล ?\");'><i class='fa fa-trash-o'></i></a></td>
-                <td><a href='edit-teacher.php?id=" . $v['teacher_id'] . "'><i class='fa fa-pencil'></i></a></td>
-            </tr>
-            ";
-        }
-    }
-}
-$result = null;
-$rows = null;
-$num_rows = null;
-?>
-                                </table>
-                            </div>
-                            <div class="panel-footer text-right">
-                                <a href="list-teacher.php">รายชื่ออาจารย์ทั้งหมด</a>
-                            </div>
-                        </div>
                         <!-- รายชื่อผู้ปกครอง -->
                         <div class="panel panel-primary">
                             <div class="panel-heading">
@@ -181,6 +136,51 @@ $num_rows = null;
                             </div>
                             <div class="panel-footer text-right">
                                 <a href="list-parent.php">รายชื่อผู้ปกครองทั้งหมด</a>
+                            </div>
+                        </div>
+                        <!-- รายชื่อครู -->
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <h3>ข้อมูลอาจารย์ <a href="create-teacher.php"><i style="color: white;" class="fa fa-plus"></i></a></h3>
+                            </div>
+                            <div class="panel-body">
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>ชื่อ - นามสกุล</th>
+                                        <th>แผนกวิชา</th>
+                                        <th>Tel.</th>
+                                        <th>Email</th>
+                                        <th colspan="2">จัดการ</th>
+                                    </tr>
+                                    <?php
+$sql = "select * from tb_teacher limit 10;";
+$result = $db->query($sql, $rows, $num_rows);
+if ($result) {
+    if ($rows > 0) {
+        foreach ($rows as $k => $v) {
+            $department = $dep->get_department($v['dep_id']);
+            $department_name = $department[0]['dep_name'];
+            print "
+            <tr>
+                <td>" . $v['fname'] . " " . $v['lname'] . "</td>
+                <td>" . $department_name . "</td>
+                <td>" . $v['tel'] . "</td>
+                <td>" . $v['email'] . "</td>
+                <td><a href='delete-teacher.php?id=" . $v['teacher_id'] . "' onclick='return confirm(\"ยืนยันการลบข้อมูล ?\");'><i class='fa fa-trash-o'></i></a></td>
+                <td><a href='edit-teacher.php?id=" . $v['teacher_id'] . "'><i class='fa fa-pencil'></i></a></td>
+            </tr>
+            ";
+        }
+    }
+}
+$result = null;
+$rows = null;
+$num_rows = null;
+?>
+                                </table>
+                            </div>
+                            <div class="panel-footer text-right">
+                                <a href="list-teacher.php">รายชื่ออาจารย์ทั้งหมด</a>
                             </div>
                         </div>
                     </div>
