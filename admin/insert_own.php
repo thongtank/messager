@@ -25,7 +25,7 @@ $sql = "UPDATE `tb_student` SET `parent_id` = '" . $data['parent_id'] . "'
             WHERE `tb_student`.`student_id` = '" . $data['student_id'] . "';";
 $result = $db->query($sql, $rows, $num_rows);
 if ($result === true) {
-    header("Location: insert_success.php");
+    header("Location: insert_own_success.php");
 } else {
     echo $result . "<BR>";
     echo "<a href='create-student.php'>กลับหน้าเพิ่มข้อมูล</a>";

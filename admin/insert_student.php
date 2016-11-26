@@ -32,7 +32,7 @@ $sql = "INSERT INTO `tb_student`(`student_id`, `fname`, `lname`, `dep_id`, `bran
     VALUES ('" . $data['student_id'] . "','" . $data['student_fname'] . "','" . $data['student_lname'] . "'," . $data['department'] . "," . $data['branch'] . "," . $data['grade'] . "," . $data['group'] . ", '" . $data['tel'] . "','" . $data['email'] . "', NOW(), " . $_SESSION['admin_id'] . ");";
 $result = $db->query($sql, $rows, $num_rows);
 if ($result === true) {
-    header("Location: insert_success.php");
+    header("Location: insert_student_success.php");
 } else {
     echo $result . "<BR>";
     echo "<a href='create-student.php'>กลับหน้าเพิ่มข้อมูล</a>";

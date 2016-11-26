@@ -29,7 +29,7 @@ $sql = "INSERT INTO `tb_parent`(`parent_id`, `fname`, `lname`, `email`, `tel`, `
     VALUES ('" . $data['parent_id'] . "','" . $data['parent_fname'] . "','" . $data['parent_lname'] . "', '" . $data['email'] . "','" . $data['tel'] . "', '" . $data['waytoreceive'] . "', NOW(), " . $_SESSION['admin_id'] . ");";
 $result = $db->query($sql, $rows, $num_rows);
 if ($result === true) {
-    header("Location: insert_success.php");
+    header("Location: insert_parent_success.php");
 } else {
     echo $result . "<BR>";
     echo "<a href='create-parent.php'>กลับหน้าเพิ่มข้อมูล</a>";

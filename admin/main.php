@@ -47,7 +47,7 @@ $pr = new cls\parents();
                                         <th colspan="2">จัดการ</th>
                                     </tr>
                                     <?php
-$sql = "select * from tb_student limit 10;";
+$sql = "select * from tb_student order by date_create DESC limit 20;";
 $result = $db->query($sql, $rows, $num_rows);
 if ($result) {
     if ($rows > 0) {
@@ -102,7 +102,7 @@ $num_rows = null;
                                         <th colspan="3">จัดการ</th>
                                     </tr>
                                     <?php
-$sql = "select * from tb_parent limit 10;";
+$sql = "select * from tb_parent order by date_create desc limit 20;";
 $result = $db->query($sql, $rows, $num_rows);
 if ($result) {
     if ($rows > 0) {

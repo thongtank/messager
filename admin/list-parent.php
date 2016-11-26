@@ -39,7 +39,7 @@ $dep = new cls\department();
                     <div class="col-md-12" style="padding-top: 10px;">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3>ผู้ปกครอง</h3>
+                                <h3>ข้อมูลผู้ปกครอง <a href="create-parent.php"><i style="color: white;" class="fa fa-plus"></i></a></h3>
                             </div>
                             <div class="panel-body">
                                 <table class="table table-hover">
@@ -49,7 +49,7 @@ $dep = new cls\department();
                                         <th>ช่องทางการรับข้อมูล</th>
                                         <th>Tel.</th>
                                         <th>Email</th>
-                                        <th colspan="2">จัดการ</th>
+                                        <th colspan="3">จัดการ</th>
                                     </tr>
                                     <?php
 $sql = "";
@@ -60,11 +60,12 @@ if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
         lname like '%" . $keyword . "%' or
         parent_id like '%" . $keyword . "%' or
         tel like '%" . $keyword . "%' or
-        email like '%" . $keyword . "%';";
+        email like '%" . $keyword . "%' ";
 } else {
     $sql = "select * from tb_parent ";
 }
 $sql .= "order by date_create desc";
+// echo $sql;
 $result = $db->query($sql, $rows, $num_rows);
 if ($result) {
     // print "<pre>" . print_r($rows, 1) . "</pre>";
@@ -77,8 +78,15 @@ if ($result) {
                 <td>" . $v['waytoreceive'] . "</td>
                 <td>" . $v['tel'] . "</td>
                 <td>" . $v['email'] . "</td>
-                <td><a href='delete-parent.php?id=" . $v['parent_id'] . "' onclick='return confirm(\"ยืนยันการลบข้อมูล ?\");'><i class='fa fa-trash-o'></i></a></td>
-                <td><a href='edit-parent.php?id=" . $v['parent_id'] . "'><i class='fa fa-pencil'></i></a></td>
+                <td>
+                    <a href='create-own.php?id=" . $v['parent_id'] . "'><i class='fa fa-group'></i></a>
+                </td>
+                <td>
+                    <a href='edit-parent.php?id=" . $v['parent_id'] . "'><i class='fa fa-pencil'></i></a>
+                </td>
+                <td>
+                    <a href='delete-parent.php?id=" . $v['parent_id'] . "' onclick='return confirm(\"ยืนยันการลบข้อมูล ?\");'><i class='fa fa-trash-o'></i></a>
+                </td>
             </tr>
             ";
         }

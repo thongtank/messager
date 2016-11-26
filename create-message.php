@@ -59,8 +59,8 @@ $ht = new cls\hospitals;
                             <label for="student_id">รหัสนักเรียน</label>
                             <input type="text" pattern="[0-9]{10}" class="form-control" id="student_id" name="student_id" required>
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-12 text-center" id="student_name"></label>
+                        <div class="form-group text-center">
+                            <label for="" class="" id="student_name"></label>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

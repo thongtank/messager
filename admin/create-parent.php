@@ -32,7 +32,7 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
             <section class="content">
                 <form action="insert_parent.php" method="POST" class="form-horizontal form-register">
                     <div class="form-group">
-                        <label for="parent_id" class="control-label col-md-4">รหัสประจำตัวผู้ปกครอง *</label>
+                        <label for="parent_id" class="control-label col-md-4">รหัสประชาชนผู้ปกครอง *</label>
                         <div class="col-md-8">
                             <input type="text" pattern="[0-9]{13}" class="form-control" id="parent_id" name="parent_id" required="required">
                         </div>

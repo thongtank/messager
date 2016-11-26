@@ -84,8 +84,8 @@ if (!$result) {
                             <input type="text" pattern="[0-9]{10}" placeholder="รหัสนักศึกษา 10 หลัก" class="form-control" id="student_id" name="student_id" autocomplete="off" required>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="" class="col-md-12 text-center" id="student_name"></label>
+                    <div class="form-group text-center">
+                        <label for="" id="student_name"></label>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12 text-center">

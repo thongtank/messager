@@ -28,7 +28,7 @@ $sql = "INSERT INTO `tb_teacher`(`teacher_username`, `teacher_password`, `fname`
     VALUES ('" . $data['teacher_username'] . "',PASSWORD('" . $data['teacher_password'] . "'),'" . $data['teacher_fname'] . "','" . $data['teacher_lname'] . "','" . $data['tel'] . "','" . $data['email'] . "', " . $data['department'] . ", " . $_SESSION['admin_id'] . ", NOW());";
 $result = $db->query($sql, $rows, $num_rows);
 if ($result === true) {
-    header("Location: insert_success.php");
+    header("Location: insert_teacher_success.php");
 } else {
     echo $result . "<BR>";
     echo "<a href='create-teacher.php'>กลับหน้าเพิ่มข้อมูล</a>";

@@ -56,7 +56,7 @@ if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
     $keyword = trim($_GET['keyword']);
     $sql .= "select * from tb_teacher where
         fname like '%" . $keyword . "%' or
-        lname like '%" . $keyword . "%'";
+        lname like '%" . $keyword . "%' ";
 } else {
     $sql = "select * from tb_teacher ";
 }

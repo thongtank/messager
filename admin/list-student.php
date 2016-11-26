@@ -13,6 +13,7 @@ use config\database as db;
 
 $db = new db;
 $dep = new cls\department();
+$pr = new cls\parents();
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -39,7 +40,7 @@ $dep = new cls\department();
                     <div class="col-md-12" style="padding-top: 10px;">
                         <div class="panel panel-success">
                             <div class="panel-heading">
-                                <h3>นักเรียน</h3>
+                                <h3>นักเรียน <a href="create-student.php"><i style="color: white;" class="fa fa-plus"></i></a></h3>
                             </div>
                             <div class="panel-body">
                                 <table class="table table-hover">
@@ -50,6 +51,7 @@ $dep = new cls\department();
                                         <th>แผนกวิชา</th>
                                         <th>สาขาวิชา</th>
                                         <th>กลุ่ม</th>
+                                        <th>ผู้ปกครอง</th>
                                         <th colspan="2">จัดการ</th>
                                     </tr>
                                     <?php
@@ -74,7 +76,8 @@ if ($result) {
             $branch = $dep->get_branch($v['branch_id']);
             $branch_name = $branch[0]['branch_name'];
             $grade_name = $dep->get_grade($v['grade_id']);
-
+            $parent = $pr->get_parent($v['parent_id']);
+            $parent_name = $parent['fname'] . ' ' . $parent['lname'];
             print "
             <tr>
                 <td>" . $v['student_id'] . "</td>
@@ -83,6 +86,7 @@ if ($result) {
                 <td>" . $department_name . "</td>
                 <td>" . $branch_name . "</td>
                 <td>" . $v['group'] . "</td>
+                <td>" . $parent_name . "</td>
                 <td><a href='delete-student.php?id=" . $v['student_id'] . "' onclick='return confirm(\"ยืนยันการลบข้อมูล ?\");'><i class='fa fa-trash-o'></i></a></td>
                 <td><a href='edit-student.php?id=" . $v['student_id'] . "'><i class='fa fa-pencil'></i></a></td>
             </tr>
