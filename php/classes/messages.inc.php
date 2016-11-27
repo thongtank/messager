@@ -15,7 +15,7 @@ class messages extends db {
     }
 
     public function insert_receive($message_id = 0, $parent_id = '', $status = '') {
-        $sql = "INSERT INTO `tb_parent_receive` (`message_id`, `parent_id`, `status`, `date_receive`) VALUES ($message_id, '" . $parent_id . "', '" . $status . "', NOW());";
+        $sql = "INSERT INTO `tb_parent_receive` (`message_id`, `parent_id`, `status`, `date_receive`) VALUES ($message_id, '$parent_id', '$status', NOW());";
         $result = $this->query($sql, $rows, $num_rows);
         if ($result) {
             return true;

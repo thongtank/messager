@@ -23,6 +23,7 @@ $pr = new cls\parents();
 $std = new cls\students();
 $msg = new cls\messages();
 $tc = new cls\teachers();
+$dep = new cls\department();
 
 $sql = "select * from tb_message where message_id = " . $_GET['id'] . " LIMIT 1;";
 $result = $db->query($sql, $rows, $num_rows);
@@ -31,7 +32,7 @@ if ($result) {
     $teacher_name = $teacher['fname'] . ' ' . $teacher['lname'];
     // echo $teacher_name;exit;
     if ($rows[0]['kind_of_send'] == 'one') {
-        $sql = "SELECT pr.*, pr.email as pr_email, pr.tel as pr_tel, std.*, std.email as std_email, std.tel as std_tel FROM tb_parent as pr JOIN tb_student as std ON pr.parent_id = std.parent_id WHERE std.student_id = '" . $rows[0]['student_id'] . "';";
+        $sql = "SELECT pr.*, pr.email as pr_email, pr.tel as pr_tel, pr.fname as pr_fname, pr.lname as pr_lname, std.*, std.email as std_email, std.tel as std_tel FROM tb_parent as pr JOIN tb_student as std ON pr.parent_id = std.parent_id WHERE std.student_id = '" . $rows[0]['student_id'] . "';";
         $result_2 = $db->query($sql, $rows_2, $num_rows_2);
         if ($result_2) {
             if ($rows_2[0]['waytoreceive'] == 'phone') {
@@ -57,9 +58,9 @@ if ($result) {
                     exit;
                 }
             } else {
-
                 // $mail->SMTPDebug = 2; // Enable verbose debug output
-
+                $parent_name = $rows_2[0]['pr_fname'] . " " . $rows_2[0]['pr_lname'];
+                // $mail->charSet = "UTF-8";
                 $mail->isSMTP(); // Set mailer to use SMTP
                 $mail->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers
                 $mail->SMTPAuth = true; // Enable SMTP authentication
@@ -69,7 +70,7 @@ if ($result) {
                 $mail->Port = 587; // TCP port to connect to
 
                 $mail->setFrom('itutc@ac.th', 'อาจารย์' . $teacher_name);
-                $mail->addAddress($rows_2[0]['pr_email'], 'WTF'); // Add a recipient
+                $mail->addAddress($rows_2[0]['pr_email'], $parent_name); // Add a recipient
                 // $mail->addCC('cc@example.com');
                 // $mail->addBCC('bcc@example.com');
 
@@ -78,7 +79,10 @@ if ($result) {
                 $mail->isHTML(true); // Set email format to HTML
 
                 $mail->Subject = $rows[0]['subject'];
-                $mail->Body = '<h1>' . $rows[0]['message'] . '</h1>';
+                $message = '<h1>เรียนคุณ ' . $parent_name . '</h1>
+                    <br>
+                    ' . $rows[0]['message'];
+                $mail->Body = $message;
                 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                 if (!$mail->send()) {
@@ -90,7 +94,6 @@ if ($result) {
                         echo "ไม่สามารถอัพเดทตาราง parent_receive ได้";
                         exit;
                     }
-
                 }
             }
         } else {
@@ -98,6 +101,12 @@ if ($result) {
             exit;
         }
     } else {
+        $department = $dep->get_department($rows[0]['dep_id']);
+        $department_name = $department[0]['dep_name'];
+        $branch = $dep->get_branch($rows[0]['branch_id']);
+        $branch_name = $branch[0]['branch_name'];
+        $grade_name = $dep->get_grade($rows[0]['grade_id']);
+        $group = $rows[0]['group'];
         // เมื่อส่งแบบกลุ่ม
         $sql = "SELECT pr.*, pr.email as pr_email, pr.tel as pr_tel, pr.fname as pr_fname, pr.lname as pr_lname, std.*, std.email as std_email, std.tel as std_tel FROM tb_parent as pr JOIN tb_student as std ON pr.parent_id = std.parent_id WHERE std.dep_id = " . $rows[0]['dep_id'] . " AND std.branch_id = " . $rows[0]['branch_id'] . " and std.grade_id = " . $rows[0]['grade_id'] . " AND std.group = " . $rows[0]['group'] . ";";
         $result_2 = $db->query($sql, $rows_2, $num_rows_2);
@@ -132,9 +141,10 @@ if ($result) {
                     $mail->setFrom('itutc@ac.th', 'อาจารย์' . $teacher_name);
 
                     $mail->isHTML(true); // Set email format to HTML
-                    $mail->CharSet = 'UTF-8';
+                    // $mail->CharSet = 'UTF-8';
                     $mail->Subject = $rows[0]['subject'];
-                    $mail->Body = $rows[0]['message'];
+                    $mail->Body = 'เรียนผู้ปกครองนักศึกษาระดับ ' . $grade_name . ' แผนกวิชา ' . $department_name . ' สาขาวิชา ' . $branch_name . ' กลุ่ม ' . $group . '<br>
+                    <b>' . $rows[0]['message'] . '</b>';
                     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                     if (!$mail->send()) {

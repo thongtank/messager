@@ -17,15 +17,16 @@ $data = array
 );
 
 // เรียกใช้งานคลาส database
+use classes as cls;
 use config\database as db;
 
 $db = new db;
+$dep = new cls\department();
 
 $sql = "INSERT INTO `tb_department` (`dep_id`, `dep_name`, `tel`, `admin_id`, `date_create`) VALUES (NULL, '" . $data['department'] . "', '" . $data['tel'] . "', " . $_SESSION['admin_id'] . ", NOW());";
-// print $sql;exit();
 $result = $db->query($sql, $rows, $num_rows);
 if ($result === true) {
-    header("Location: insert_success.php");
+    header("Location: insert_department_success.php");
 } else {
     echo $result . "<BR>";
     echo "<a href='list-department.php'>กลับหน้าเพิ่มข้อมูลแผนกวิชา</a>";

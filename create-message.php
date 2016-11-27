@@ -8,11 +8,9 @@ if (!isset($_SESSION["teacher"]) || $_SESSION["teacher"] != "logon") {
 }
 include 'php/config/autoload.inc.php';
 
-use classes as cls;
 use config as cfg;
 
 $db = new cfg\database;
-$ht = new cls\hospitals;
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -52,7 +50,7 @@ $ht = new cls\hospitals;
                             <input type="text" class="form-control" id="subject" name="subject" placeholder="กรุณากรอกหัวข้อของข้อความ" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="message">หัวข้อ</label>
+                            <label for="message">เนื้อหา</label>
                             <textarea name="message" id="message" class="form-control" rows="3" required="required"></textarea>
                         </div>
                         <div class="form-group">
@@ -62,7 +60,7 @@ $ht = new cls\hospitals;
                         <div class="form-group text-center">
                             <label for="" class="" id="student_name"></label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">สร้างข้อความ</button>
                     </form>
                 </div>
                 <div class="row" id="group_form">
@@ -114,7 +112,7 @@ $ht = new cls\hospitals;
                                 <input type="number" name="group" id="group" class="form-control" required>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">สร้างข้อความ</button>
                     </form>
                 </div>
             </section>

@@ -57,6 +57,9 @@ if (!$result) {
                         <input type="text" name="department" id="department" class="form-control" placeholder="เพิ่มแผนกวิชา" required="required" value="<?=$data['dep_name'];?>">
                     </div>
                     <div class="form-group">
+                        <label for="" class="col-md-12 text-center" id="department_name"></label>
+                    </div>
+                    <div class="form-group">
                         <label for="tel">Tel.</label>
                         <input type="text" name="tel" id="tel" class="form-control" placeholder="กรอกเบอร์โทรศัพท์" pattern="[0-9]{0,10}" required="required" value="<?=$data['tel'];?>">
                     </div>
