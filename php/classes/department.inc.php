@@ -6,7 +6,6 @@ class department extends db {
 
     public function get_branch_by_name($branch_name = '', $dep_id = 0) {
         $sql = "SELECT * FROM `tb_branch` WHERE `branch_name` = '" . $branch_name . "' and `dep_id` = " . $dep_id . ";";
-        // echo $sql;exit;
         $result = $this->query($sql, $rows, $num_rows);
         if ($result) {
             return $rows;

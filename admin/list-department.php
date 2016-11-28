@@ -32,14 +32,14 @@ $dep = new cls\department();
                         <form action="insert_department.php" method="POST" class="col-md-12">
                             <div class="form-group">
                                 <label for="department">แผนกวิชา</label>
-                                <input type="text" name="department" id="department" class="form-control" placeholder="เพิ่มแผนกวิชา" required="required">
+                                <input type="text" autocomplete="off" name="department" id="department" class="form-control" placeholder="เพิ่มแผนกวิชา" required="required">
                             </div>
                             <div class="form-group">
                                 <label for="" class="col-md-12 text-center" id="department_name"></label>
                             </div>
                             <div class="form-group">
                                 <label for="tel">Tel.</label>
-                                <input type="text" name="tel" id="tel" class="form-control" placeholder="กรอกเบอร์โทรศัพท์" pattern="[0-9]{0,10}" required="required">
+                                <input type="text" autocomplete="off" name="tel" id="tel" class="form-control" placeholder="กรอกเบอร์โทรศัพท์" pattern="[0-9]{0,10}" required="required">
                             </div>
                             <div class="form-group">
                                 <input type="submit" value="เพิ่มแผนก" class="btn btn-default pull-right" name="btnsubmit" id="btnsubmit">
@@ -50,7 +50,7 @@ $dep = new cls\department();
                         <form action="" method="GET" class="col-md-12">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="keyword" placeholder="ค้นหาแผนกวิชา">
-                                <span class="input-group-btn"><button class="btn btn-default" type="submit">Go!</button></span>
+                                <span class="input-group-btn"><button class="btn btn-default" type="submit">ค้นหา</button></span>
                             </div>
                         </form>
                     </div>

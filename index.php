@@ -48,7 +48,7 @@ $pr = new cls\parents;
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input type="text" pattern="[a-zA-Z0-9_]{2,12}" class="form-control" id="username" name="username" placeholder="Username" required>
+                                <input type="text" autocomplete="off" pattern="[a-zA-Z0-9_]{2,12}" class="form-control" id="username" name="username" placeholder="Username" required>
                             </div>
                         </div>
                         <div class="form-group">

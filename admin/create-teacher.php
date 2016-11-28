@@ -35,8 +35,11 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
                     <div class="form-group">
                         <label for="teacher_username" class="control-label col-md-4">username *</label>
                         <div class="col-md-8">
-                            <input type="text" pattern="[0-9a-zA-Z_]{1,12}" class="form-control" id="teacher_username" name="teacher_username" required>
+                            <input type="text" autocomplete="off" pattern="[0-9a-zA-Z_]{1,12}" class="form-control" id="teacher_username" name="teacher_username" required>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" id="teacher_already" class="control-label col-md-12 text-danger"></label>
                     </div>
                     <div class="form-group">
                         <label for="teacher_password" class="control-label col-md-4">password *</label>
@@ -47,13 +50,13 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
                     <div class="form-group">
                         <label for="teacher_fname" class="control-label col-md-4">ชื่อ *</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" id="teacher_fname" name="teacher_fname" required>
+                            <input type="text" autocomplete="off" class="form-control" id="teacher_fname" name="teacher_fname" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="teacher_lname" class="control-label col-md-4">นามสกุล *</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" id="teacher_lname" name="teacher_lname" required>
+                            <input type="text" autocomplete="off" class="form-control" id="teacher_lname" name="teacher_lname" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -91,7 +94,7 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
         <script src="../js/jquery-1.11.3.min.js"></script>
         <script src="../js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
         <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../src/student.js"></script>
+        <script src="../src/teacher.js"></script>
         <script src="../src/department.js"></script>
         <script src="../js/jquery.confirm-master/jquery.confirm.min.js"></script>
     </body>

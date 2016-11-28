@@ -17,7 +17,7 @@ $db = new cfg\database;
 $sql = "DELETE FROM `tb_student` WHERE `student_id` = " . $_GET['id'];
 $result = $db->query($sql, $rows, $num_rows);
 if ($result) {
-    header("Location: delete_success.php");
+    header("Location: delete_student_success.php");
 } else {
     echo $result . "<BR>";
     echo "<a href='main.php'>กลับหน้าหลัก</a>";

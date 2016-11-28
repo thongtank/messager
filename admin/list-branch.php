@@ -38,7 +38,7 @@ $dep = new cls\department();
                             </div>
                             <div class="form-group">
                                 <label for="branch">สาขาวิชา *</label>
-                                <input type="text" name="branch" id="branch" class="form-control" placeholder="กรอกสาขาวิชา" required="required">
+                                <input autocomplete="off" type="text" name="branch" id="branch" class="form-control" placeholder="กรอกสาขาวิชา" required="required">
                             </div>
                             <div class="form-group">
                                 <label for="" class="col-md-12 text-center" id="branch_name"></label>
@@ -51,8 +51,8 @@ $dep = new cls\department();
                     <div class="col-md-6">
                         <form action="" method="GET" class="col-md-12">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="keyword" placeholder="ค้นหาสาขาวิชาวิชา">
-                                <span class="input-group-btn"><button class="btn btn-default" type="submit">Go!</button></span>
+                                <input type="text" class="form-control" name="keyword" placeholder="ค้นหาสาขาวิชา">
+                                <span class="input-group-btn"><button class="btn btn-default" type="submit">ค้นหา</button></span>
                             </div>
                         </form>
                     </div>
@@ -114,26 +114,6 @@ $num_rows = null;
                         </div>
                     </div>
                 </div>
-                <!--
-                    <div class="col-md-3 hidden-print hidden-xs hidden-sm affix" style="right: 0;">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">รายการ</h3>
-                            </div>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <a href="#hospital"><i class="fa fa-heartbeat"></i> โรงพยาบาล</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#medicine"><i class="fa fa-medkit"></i> ยา</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#profile"><i class="fa fa-users"></i> สมาชิก</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    -->
             </section>
         </article>
         <script src="../js/jquery-1.11.3.min.js"></script>

@@ -1,14 +1,14 @@
 <?php
 session_start();
 if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
-	session_unset();
-	session_destroy();
-	header("Location: index.php");
-	exit;
+    session_unset();
+    session_destroy();
+    header("Location: index.php");
+    exit;
 }
 
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-	header("Location: main.php");
+    header("Location: main.php");
 }
 
 include '../php/config/autoload.inc.php';
@@ -17,8 +17,8 @@ $db = new cfg\database;
 $sql = "DELETE FROM `tb_branch` WHERE `branch_id` = " . $_GET['id'];
 $result = $db->query($sql, $rows, $num_rows);
 if ($result) {
-	header("Location: delete_success.php");
+    header("Location: delete_branch_success.php");
 } else {
-	echo $result . "<BR>";
-	echo "<a href='main.php'>กลับหน้าหลัก</a>";
+    echo $result . "<BR>";
+    echo "<a href='main.php'>กลับหน้าหลัก</a>";
 }

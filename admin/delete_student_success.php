@@ -12,7 +12,7 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
 
     <head>
         <meta charset="UTF-8">
-        <title>แก้ไขข้อมูลเสร็จสมบูรณ์</title>
+        <title>ลบข้อมูลเสร็จสมบูรณ์</title>
 
         <link rel="stylesheet" href="../css/font-awesome.min.css">
         <style>
@@ -54,8 +54,8 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
     <body>
         <div class="container">
             <i class="fa fa-thumbs-up fa-6"></i>
-            <h1>การแก้ไขข้อมูลเสร็จสมบูรณ์</h1>
-            <a href="list-department.php">กลับหน้าหลัก</a>
+            <h1>การลบข้อมูลเสร็จสมบูรณ์</h1>
+            <a href="list-student.php">กลับหน้าหลัก</a>
         </div>
     </body>
     <script src="../js/jquery-1.11.3.min.js"></script>

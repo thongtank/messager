@@ -1,12 +1,12 @@
 <?php
 session_start();
 if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
-	session_unset();
-	session_destroy();
-	header("Location: index.php");
-	exit;
+    session_unset();
+    session_destroy();
+    header("Location: index.php");
+    exit;
 } else {
-	include '../php/config/autoload.inc.php';
+    include '../php/config/autoload.inc.php';
 }
 use classes as cls;
 use config\database as db;
@@ -17,18 +17,18 @@ $dep = new cls\department();
 $sql = "select * from tb_branch where branch_id = " . trim($_GET['id']) . " limit 1";
 $result = $db->query($sql, $rows, $num_rows);
 if (!$result) {
-	print $result . "<BR>";
-	print "<a href='main.php'>กลับหน้าหลัก</a>";
-	exit;
+    print $result . "<BR>";
+    print "<a href='main.php'>กลับหน้าหลัก</a>";
+    exit;
 } else {
-	$data = array();
-	foreach ($rows[0] as $key => $value) {
-		$data[$key] = $value;
-	}
-	$department = $dep->get_department($data['dep_id']);
-	$department_name = $department[0]['dep_name'];
-	$branch = $dep->get_branch($data['branch_id']);
-	$branch_name = $branch[0]['branch_name'];
+    $data = array();
+    foreach ($rows[0] as $key => $value) {
+        $data[$key] = $value;
+    }
+    $department = $dep->get_department($data['dep_id']);
+    $department_name = $department[0]['dep_name'];
+    $branch = $dep->get_branch($data['branch_id']);
+    $branch_name = $branch[0]['branch_name'];
 }
 ?>
     <!DOCTYPE html>
@@ -55,7 +55,7 @@ if (!$result) {
             </section>
             <section class="content">
                 <form action="update_branch.php" method="POST" class="col-md-12">
-                <input type="hidden" name="branch_id" value="<?=$data['branch_id'];?>">
+                    <input type="hidden" name="branch_id" value="<?=$data['branch_id'];?>">
                     <div class="form-group">
                         <label for="department" class="control-label">แผนกวิชา *</label>
                         <select name="department" id="department" class="form-control">
@@ -67,12 +67,15 @@ if (!$result) {
                             <label class="control-label">แผนกเดิมคือ
                                 <?=$department_name;?>
                             </label>
-                            <input type="hidden" name="dep_id" value="<?=$data['dep_id'];?>">
+                            <input type="hidden" id="dep_id" name="dep_id" value="<?=$data['dep_id'];?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="branch">สาขาวิชา *</label>
-                        <input type="text" name="branch" id="branch" class="form-control" placeholder="กรอกสาขาวิชา" required="required" value="<?=$data['branch_name'];?>">
+                        <input autocomplete="off" type="text" name="branch" id="branch" class="form-control" placeholder="กรอกสาขาวิชา" required="required" value="<?=$data['branch_name'];?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-12 text-center" id="branch_name"></label>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="แก้ไขสาขาวิชา" class="btn btn-default pull-right" name="btnsubmit" id="btnsubmit">

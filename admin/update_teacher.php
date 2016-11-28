@@ -15,7 +15,7 @@ $department_id = (empty($_POST['department'])) ? $_POST['hidden_department_id'] 
 $data = array
     (
     "teacher_username" => trim($_POST['teacher_username']),
-    "teacher_password" => trim($_POST['teacher_password']),
+    // "teacher_password" => trim($_POST['teacher_password']),
     "teacher_fname" => trim($_POST['teacher_fname']),
     "teacher_lname" => trim($_POST['teacher_lname']),
     "department" => trim($department_id),
@@ -27,8 +27,16 @@ use config\database as db;
 
 $db = new db;
 
+// $sql = "UPDATE `tb_teacher` SET `teacher_username`='" . $data['teacher_username'] . "',
+//     `teacher_password`=PASSWORD('" . $data['teacher_password'] . "'),
+//     `fname`='" . $data['teacher_fname'] . "',
+//     `lname`='" . $data['teacher_lname'] . "',
+//     `dep_id`='" . $data['department'] . "',
+//     `tel`='" . $data['tel'] . "',
+//     `email`='" . $data['email'] . "',
+//     `date_create`=NOW() WHERE teacher_id='" . $_POST['hidden_id'] . "';";
+
 $sql = "UPDATE `tb_teacher` SET `teacher_username`='" . $data['teacher_username'] . "',
-    `teacher_password`=PASSWORD('" . $data['teacher_password'] . "'),
     `fname`='" . $data['teacher_fname'] . "',
     `lname`='" . $data['teacher_lname'] . "',
     `dep_id`='" . $data['department'] . "',
@@ -37,7 +45,7 @@ $sql = "UPDATE `tb_teacher` SET `teacher_username`='" . $data['teacher_username'
     `date_create`=NOW() WHERE teacher_id='" . $_POST['hidden_id'] . "';";
 $result = $db->query($sql, $rows, $num_rows);
 if ($result === true) {
-    header("Location: update_success.php");
+    header("Location: update_teacher_success.php");
 } else {
     echo $result . "<BR>";
     echo "<a href='main.php'>กลับหน้าเพิ่มข้อมูล</a>";

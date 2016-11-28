@@ -55,7 +55,7 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
         <div class="container">
             <i class="fa fa-thumbs-up fa-6"></i>
             <h1>การแก้ไขข้อมูลเสร็จสมบูรณ์</h1>
-            <a href="list-department.php">กลับหน้าหลัก</a>
+            <a href="list-teacher.php">กลับหน้าหลัก</a>
         </div>
     </body>
     <script src="../js/jquery-1.11.3.min.js"></script>

@@ -19,13 +19,13 @@
             <div class="collapse navbar-collapse" id="bs-mainmenu">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="list-msg.php"><i class="fa fa-comments-o"></i> ข้อความ</a>
-                    </li>
-                    <li class="dropdown">
                         <a href="list-department.php"><i class="fa fa-industry"></i> แผนก</a>
                     </li>
                     <li class="dropdown">
                         <a href="list-branch.php"><i class="fa fa-building"></i> สาขาวิชา</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="list-msg.php"><i class="fa fa-comments-o"></i> ข้อความ</a>
                     </li>
                 </ul>
                 <!--

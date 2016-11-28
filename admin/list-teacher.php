@@ -39,7 +39,7 @@ $dep = new cls\department();
                     <div class="col-md-12" style="padding-top: 10px;">
                         <div class="panel panel-danger">
                             <div class="panel-heading">
-                                <h3>อาจารย์</h3>
+                                <h3>ข้อมูลอาจารย์ <a href="create-student.php"><i style="color: white;" class="fa fa-plus"></i></a></h3>
                             </div>
                             <div class="panel-body">
                                 <table class="table table-hover">

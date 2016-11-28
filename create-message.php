@@ -47,7 +47,7 @@ $db = new cfg\database;
                         <legend>สร้างข้อความส่งรายบุคคล</legend>
                         <div class="form-group">
                             <label for="subject">หัวข้อ</label>
-                            <input type="text" class="form-control" id="subject" name="subject" placeholder="กรุณากรอกหัวข้อของข้อความ" required="required">
+                            <input type="text" autocomplete="off" class="form-control" id="subject" name="subject" placeholder="กรุณากรอกหัวข้อของข้อความ" required="required">
                         </div>
                         <div class="form-group">
                             <label for="message">เนื้อหา</label>
@@ -55,7 +55,7 @@ $db = new cfg\database;
                         </div>
                         <div class="form-group">
                             <label for="student_id">รหัสนักเรียน</label>
-                            <input type="text" pattern="[0-9]{10}" class="form-control" id="student_id" name="student_id" required>
+                            <input type="text" autocomplete="off" pattern="[0-9]{10}" class="form-control" id="student_id" name="student_id" required>
                         </div>
                         <div class="form-group text-center">
                             <label for="" class="" id="student_name"></label>
@@ -69,10 +69,10 @@ $db = new cfg\database;
                         <legend>สร้างข้อความส่งรายกลุ่ม</legend>
                         <div class="form-group">
                             <label for="subject">หัวข้อ</label>
-                            <input type="text" class="form-control" id="subject" name="subject" placeholder="กรุณากรอกหัวข้อของข้อความ" required="required">
+                            <input type="text" autocomplete="off" class="form-control" id="subject" name="subject" placeholder="กรุณากรอกหัวข้อของข้อความ" required="required">
                         </div>
                         <div class="form-group">
-                            <label for="message">หัวข้อ</label>
+                            <label for="message">เนื้อหา</label>
                             <textarea name="message" id="message" class="form-control" rows="3" required="required"></textarea>
                         </div>
                         <div class="form-group">

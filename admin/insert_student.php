@@ -12,7 +12,7 @@ include "../php/config/autoload.inc.php";
 // รับค่า POST ที่ส่งมาเก็บลงในตัวแปร array
 $data = array
     (
-    "student_id" => trim($_POST['student_id']),
+    "student_id" => trim($_POST['student_new_id']),
     "student_fname" => trim($_POST['student_fname']),
     "student_lname" => trim($_POST['student_lname']),
     "department" => trim($_POST['department']),
@@ -24,16 +24,28 @@ $data = array
 );
 
 // เรียกใช้งานคลาส database
+use classes as cls;
 use config\database as db;
 
 $db = new db;
-
-$sql = "INSERT INTO `tb_student`(`student_id`, `fname`, `lname`, `dep_id`, `branch_id`, `grade_id`, `group`, `tel`, `email`, `date_create`, `admin_id`)
+$std = new cls\students();
+if (count($std->get_student($data['student_id'])) == 0) {
+    $sql = "INSERT INTO `tb_student`(`student_id`, `fname`, `lname`, `dep_id`, `branch_id`, `grade_id`, `group`, `tel`, `email`, `date_create`, `admin_id`)
     VALUES ('" . $data['student_id'] . "','" . $data['student_fname'] . "','" . $data['student_lname'] . "'," . $data['department'] . "," . $data['branch'] . "," . $data['grade'] . "," . $data['group'] . ", '" . $data['tel'] . "','" . $data['email'] . "', NOW(), " . $_SESSION['admin_id'] . ");";
-$result = $db->query($sql, $rows, $num_rows);
-if ($result === true) {
-    header("Location: insert_student_success.php");
+    $result = $db->query($sql, $rows, $num_rows);
+    if ($result === true) {
+        header("Location: insert_student_success.php");
+    } else {
+        echo $result . "<BR>";
+        echo "<a href='create-student.php'>กลับหน้าเพิ่มข้อมูล</a>";
+    }
 } else {
-    echo $result . "<BR>";
-    echo "<a href='create-student.php'>กลับหน้าเพิ่มข้อมูล</a>";
+    // echo "รหัสนักเรียนซ้ำ<BR>";
+    // echo "<a href='create-student.php'>กลับหน้าเพิ่มข้อมูล</a>";
+    echo "
+    <script>
+    alert('รหัสนักเรียนซ้ำ');
+    history.back();
+    </script>
+    ";
 }

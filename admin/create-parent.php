@@ -34,19 +34,22 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
                     <div class="form-group">
                         <label for="parent_id" class="control-label col-md-4">รหัสประชาชนผู้ปกครอง *</label>
                         <div class="col-md-8">
-                            <input type="text" pattern="[0-9]{13}" class="form-control" id="parent_id" name="parent_id" required="required">
+                            <input type="text" autocomplete="off" pattern="[0-9]{13}" class="form-control" id="parent_id" name="parent_id" required="required">
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" id="parent_already" class="control-label col-md-12 text-danger"></label>
                     </div>
                     <div class="form-group">
                         <label for="parent_fname" class="control-label col-md-4">ชื่อ *</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" id="parent_fname" name="parent_fname" required>
+                            <input type="text" autocomplete="off" class="form-control" id="parent_fname" name="parent_fname" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="parent_lname" class="control-label col-md-4">นามสกุล *</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" id="parent_lname" name="parent_lname" required>
+                            <input type="text" autocomplete="off" class="form-control" id="parent_lname" name="parent_lname" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -90,7 +93,7 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
         <script src="../js/jquery-1.11.3.min.js"></script>
         <script src="../js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
         <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../src/student.js"></script>
+        <script src="../src/parent.js"></script>
         <script src="../js/jquery.confirm-master/jquery.confirm.min.js"></script>
     </body>
 

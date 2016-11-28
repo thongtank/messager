@@ -1,10 +1,10 @@
 <?php
 session_start();
 if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
-	session_unset();
-	session_destroy();
-	header("Location: index.php");
-	exit;
+    session_unset();
+    session_destroy();
+    header("Location: index.php");
+    exit;
 }
 ?>
     <!DOCTYPE html>
@@ -35,19 +35,22 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
                     <div class="form-group">
                         <label for="student_id" class="control-label col-md-4">รหัสประจำตัวนักเรียน *</label>
                         <div class="col-md-8">
-                            <input type="text" pattern="[0-9]{10}" class="form-control" id="student_id" name="student_id" required>
+                            <input autocomplete="off" type="text" pattern="[0-9]{10}" class="form-control" id="student_new_id" name="student_new_id" required>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" id="std_already" class="control-label col-md-12 text-danger"></label>
                     </div>
                     <div class="form-group">
                         <label for="student_fname" class="control-label col-md-4">ชื่อ *</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" id="student_fname" name="student_fname" required>
+                            <input autocomplete="off" type="text" class="form-control" id="student_fname" name="student_fname" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="student_lname" class="control-label col-md-4">นามสกุล *</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" id="student_lname" name="student_lname" required>
+                            <input autocomplete="off" type="text" class="form-control" id="student_lname" name="student_lname" required>
                         </div>
                     </div>
                     <!-- เลือกแผนก -->
@@ -85,7 +88,7 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
                     <div class="form-group">
                         <label for="group" class="control-label col-md-4">กลุ่ม *</label>
                         <div class="col-md-8">
-                            <input type="number" name="group" id="group" class="form-control" required>
+                            <input autocomplete="off" type="number" name="group" id="group" class="form-control" required>
                         </div>
                     </div>
                     <!-- จบเลือกแผนก -->
@@ -99,12 +102,12 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
                     <div class="form-group">
                         <label for="email" class="control-label col-md-4">อีเมล์</label>
                         <div class="col-md-8">
-                            <input type="email" class="form-control" id="email" name="email">
+                            <input autocomplete="off" type="email" class="form-control" id="email" name="email">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-success" >บันทึก</button>
+                            <button type="submit" class="btn btn-success" id="btn_submit_new_std">บันทึก</button>
                             <button class="btn btn-danger" type="reset">ยกเลิก</button>
                         </div>
                     </div>

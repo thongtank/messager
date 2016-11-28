@@ -58,16 +58,16 @@ if (!$result) {
                         <div class="form-group">
                             <label for="teacher_username" class="control-label col-md-4">username *</label>
                             <div class="col-md-8">
-                                <input type="text" value="<?=$data['teacher_username'];?>" class="form-control" id="teacher_username" name="teacher_username">
+                                <input readonly="" type="text" value="<?=$data['teacher_username'];?>" class="form-control" id="teacher_username" name="teacher_username">
                                 <input type="hidden" value="<?=$data['teacher_id'];?>" name="hidden_id" id="hidden_id">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="teacher_password" class="control-label col-md-4">password *</label>
                             <div class="col-md-8">
                                 <input type="password" value="" class="form-control" id="teacher_password" name="teacher_password">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="teacher_fname" class="control-label col-md-4">ชื่อ *</label>
                             <div class="col-md-8">
@@ -117,6 +117,7 @@ if (!$result) {
         <script src="../js/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
         <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="../src/student.js"></script>
+        <script src="../src/department.js"></script>
         <script src="../js/jquery.confirm-master/jquery.confirm.min.js"></script>
     </body>
 
