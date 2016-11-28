@@ -78,7 +78,7 @@ $db = new cfg\database;
                         <div class="form-group">
                             <label for="department" class="control-label col-md-4">แผนกวิชา *</label>
                             <div class="col-md-8">
-                                <select name="department" id="department" class="form-control" required>
+                                <select name="department" id="department" class="form-control" required="required">
                                     <option value="">เลือกแผนกวิชา</option>
                                 </select>
                             </div>
@@ -86,7 +86,7 @@ $db = new cfg\database;
                         <div class="form-group">
                             <label for="branch" class="control-label col-md-4">สาขาวิชา *</label>
                             <div class="col-md-8">
-                                <select name="branch" id="branch" class="form-control" required>
+                                <select name="branch" id="branch" class="form-control" required="required">
                                     <option value="">เลือกสาขาวิชา</option>
                                 </select>
                             </div>
@@ -94,8 +94,8 @@ $db = new cfg\database;
                         <div class="form-group">
                             <label for="grade" class="control-label col-md-4">ระดับชั้น *</label>
                             <div class="col-md-8">
-                                <select name="grade" id="grade" class="form-control" required>
-                                    <option value="0">เลือกระดับชั้น</option>
+                                <select name="grade" id="grade" class="form-control" required="required">
+                                    <option value="">เลือกระดับชั้น</option>
                                     <option value="1">ปวช. 1</option>
                                     <option value="2">ปวช. 2</option>
                                     <option value="3">ปวช. 3</option>

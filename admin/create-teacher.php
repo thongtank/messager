@@ -77,7 +77,7 @@ if (!isset($_SESSION["admin"]) || $_SESSION["admin"] != "logon") {
                     <div class="form-group">
                         <label for="email" class="control-label col-md-4">อีเมล์</label>
                         <div class="col-md-8">
-                            <input type="email" class="form-control" id="email" name="email">
+                            <input type="email" autocomplete="off" class="form-control" id="email" name="email">
                         </div>
                     </div>
                     <div class="form-group">

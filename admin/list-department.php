@@ -63,6 +63,7 @@ $dep = new cls\department();
                                 <table class="table table-hover">
                                     <tr>
                                         <th>แผนก</th>
+                                        <th>เบอร์โทรศัพท์</th>
                                         <th colspan="2">จัดการ</th>
                                     </tr>
                                     <?php
@@ -89,6 +90,7 @@ if ($result) {
             print "
             <tr>
                 <td>" . $department_name . "</td>
+                <td>" . $v['tel'] . "</td>
                 <td><a href='delete-department.php?id=" . $v['dep_id'] . "' onclick='return confirm(\"ยืนยันการลบข้อมูล ?\");'><i class='fa fa-trash-o'></i></a></td>
                 <td><a href='edit-department.php?id=" . $v['dep_id'] . "'><i class='fa fa-pencil'></i></a></td>
             </tr>

@@ -73,7 +73,7 @@ $sql = "";
 if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
     $keyword = trim($_GET['keyword']);
     $sql .= "select * from tb_branch where
-        dep_name like '%" . $keyword . "%' ";
+        branch_name like '%" . $keyword . "%' ";
 } else {
     $sql = "select * from tb_branch ";
 }
